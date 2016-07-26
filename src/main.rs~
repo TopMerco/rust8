@@ -1,0 +1,24 @@
+use std::fs::File;
+use std::io::Read;
+use std::str;
+
+struct Registers{
+    v_n:[u8;10],
+    v_l:[u8;6]    
+}
+
+
+fn load_rom(filename: &str) -> Vec<u8> {
+    let mut file=File::open(filename).unwrap();
+    let mut buffer = Vec::new();//Un array è di dimensione fissata, un vettore è allocato dinamicamente.
+    file.read_to_end(&mut buffer).unwrap(); //Carica l'intera ROM nella memoria in un botto. Idea orribile?
+    return buffer;
+}
+
+fn exec_op(){
+    //Provare caricando una sola istruzionee mettendo lo switch case di quella singola istruzione.
+}
+
+fn main() {
+    let rom=load_rom("PONG");
+}
